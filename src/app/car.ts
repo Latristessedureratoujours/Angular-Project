@@ -3,6 +3,8 @@ import { Point } from "./point";
 export class Car {
 
     private LENGTH: number = 5;
+    private WIDTH: number = 5;
+
 
     private _basePoint: Point;
 

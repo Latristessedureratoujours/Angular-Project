@@ -1,0 +1,17 @@
+.start-btn {
+    border-color: gray;
+    background-color: #ad4;
+    color: #f3f3f3;
+    border-radius: 6px;
+    margin: 50% auto;
+    max-width: 20%;
+    cursor: pointer;
+}
+.start-btn:hover{
+    box-shadow: 2px 2px 7px #888888;
+}
+.start-btn__content {
+    text-align: center;
+    padding: 18% 12%;
+    
+}

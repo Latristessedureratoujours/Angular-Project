@@ -6,17 +6,26 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PlayFieldComponent } from './play-field/play-field.component';
 import { PlayerComponent } from './player/player.component';
+import { StartPadgeComponent } from './start-padge/start-padge.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: StartPadgeComponent },
+  { path: 'play-field', component: PlayFieldComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayFieldComponent,
-    PlayerComponent
+    PlayerComponent,
+    StartPadgeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,    
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent],

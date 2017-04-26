@@ -1,8 +1,8 @@
-<table>
+<table class="main">
   <tr *ngFor="let row of vm.rows">
     <td *ngFor="let cell of row.cells">
-      <div *ngIf="cell" style="background-color: blue; width: 5px; height: 5px;"></div>
-      <div *ngIf="!cell" style="background-color: green; width: 5px; height: 5px;"></div>
+      <div *ngIf="cell" style="background-color: grey; width: 5px; height: 5px;"></div>
+      <div *ngIf="!cell" style="background-color: lightgrey; width: 5px; height: 5px;"></div>
     </td>
   </tr>
 </table>
