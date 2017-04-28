@@ -1,8 +1,21 @@
-<table class="main">
-  <tr *ngFor="let row of vm.rows">
-    <td *ngFor="let cell of row.cells">
-      <div *ngIf="cell" style="background-color: grey; width: 5px; height: 5px;"></div>
-      <div *ngIf="!cell" style="background-color: lightgrey; width: 5px; height: 5px;"></div>
-    </td>
-  </tr>
-</table>
+<div *ngIf="!isGameOver" style="width: 500px; height: 500px;" tabindex="0" (keydown)="onkeyDown($event)">
+  <div *ngFor="let car of vm.cars" [ngStyle]="{
+  'position': 'absolute', 
+  'width': '10px',
+  'height': '50px',
+  'background': 'red', 
+  'left': car.x*10 + 'px',
+  'top': car.y*10 + 'px'
+  }">
+  </div>
+  <div [ngStyle]="{
+  'position': 'absolute', 
+  'width': '10px',
+  'height': '50px',
+  'background': 'green', 
+  'left': vm.myCar.x*10 + 'px',
+  'top': vm.myCar.y*10 + 'px'
+  }">
+  </div>
+</div>
+<div *ngIf="isGameOver">Game OVER!</div>

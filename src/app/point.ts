@@ -1,10 +1,10 @@
 export class Point {
 
-    public static get MAX_X(): number{
+    public static get MAX_X(): number {
         return 10;
     }
 
-    public static get MAX_Y(): number{
+    public static get MAX_Y(): number {
         return 40;
     }
 
@@ -30,10 +30,10 @@ export class Point {
         this._y = Math.round(y);
     }
 
-    public get x():number {
+    public get x(): number {
         return this._x;
     }
-    public get y():number {
+    public get y(): number {
         return this._y;
     }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Road } from "app/road";
 import { Point } from "app/point";
+import { Game } from "app/Game";
 
 @Component({
   selector: 'app-play-field',
@@ -9,33 +10,35 @@ import { Point } from "app/point";
 })
 export class PlayFieldComponent implements OnInit {
 
-  private _road: Road;
+  private _game: Game;
 
   constructor() {
-    this._road = new Road();
-
-    this._road.moved.subscribe((_var) => {
-      if(this._road.isCarInPoint(new Point(0, 10))){
-        console.log(_var );
-      }
-    });
+    this._game = new Game();
   }
 
   ngOnInit() {
   }
 
-  public get vm(): any {
-    var rows = [];
-    for (var y = 0; y < Point.MAX_Y; y++) {
-      var cells = [];
-      for (var x = 0; x <= Point.MAX_X; x++) {
-        cells.push(this._road.isCarInPoint(new Point(x, y)));
-      }
-      rows.push({ cells: cells });
-    }
-
-    return { rows: rows };
+  public get isGameOver(): boolean{
+    return this._game.isOver;
   }
 
+  public get vm(): any {
+    return {
+      cars: this._game.road.cars.map(c => {
+        return { x: c.basePoint.x, y: c.basePoint.y };
+      }),
+      myCar: { x: this._game.playerCarPoint.x, y: this._game.playerCarPoint.y }
+    };
+  }
 
+ public onkeyDown(event: KeyboardEvent): void{
+   console.log(event);
+
+   if(event.keyCode === 37){
+     this._game.turnLeft();
+   } else if(event.keyCode === 39){
+     this._game.turnRight();
+   }
+ }
 }

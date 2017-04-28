@@ -1,4 +1,12 @@
-.main {
-    width: 250px;
+.road {
     margin: 0 auto;
+    
+}
+.road__cell {
+    background-color: lightgrey; width: 12px; height: 12px;
+}
+.road__car {
+    background-color: grey; 
+    width: 12px; 
+    height: 12px;
 }
