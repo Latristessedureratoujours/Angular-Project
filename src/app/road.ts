@@ -3,10 +3,14 @@ import { Car } from "./car";
 import { Subject } from "rxjs/Subject";
 import { Observable } from "rxjs/Observable";
 
+
+
 export class Road {
 
     private _cars: Car[] = [];
-    private _movedSubject: Subject<void> = new Subject<void>();
+    private _movedSubject: Subject<string> = new Subject<string>();
+
+
     constructor() {
         setInterval(() => {
             this.move();
@@ -42,11 +46,15 @@ export class Road {
             }
         }
 
-        this._movedSubject.next();
+        this._movedSubject.next("subscribed!");
     }
 
-    public get moved(): Observable<void>{
+    public get moved(): Observable<string>{
         return this._movedSubject;
+    }
+
+    public get cars(): Car []{
+        return this._cars;
     }
 
     public isCarInPoint(p: Point): boolean {

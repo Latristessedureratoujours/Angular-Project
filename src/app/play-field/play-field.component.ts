@@ -14,9 +14,9 @@ export class PlayFieldComponent implements OnInit {
   constructor() {
     this._road = new Road();
 
-    this._road.moved.subscribe(() => {
+    this._road.moved.subscribe((_var) => {
       if(this._road.isCarInPoint(new Point(0, 10))){
-        console.log("AAA" );
+        console.log(_var );
       }
     });
   }
@@ -26,7 +26,7 @@ export class PlayFieldComponent implements OnInit {
 
   public get vm(): any {
     var rows = [];
-    for (var y = 0; y <= Point.MAX_Y; y++) {
+    for (var y = 0; y < Point.MAX_Y; y++) {
       var cells = [];
       for (var x = 0; x <= Point.MAX_X; x++) {
         cells.push(this._road.isCarInPoint(new Point(x, y)));
